@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Deadlines — Student Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Use Inter font family via standard style block -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fef3c7; /* Light background color */
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <h1 class="text-xl font-bold text-gray-800">Student Assistant</h1>
+            <nav class="hidden sm:ml-6 sm:flex sm:space-x-8 text-sm text-gray-600" data-nav-id="primary">
+                <a href="index.html" class="py-2 px-3 hover:text-indigo-600 transition">Home</a>
+                <a href="#" class="py-2 px-3 hover:text-indigo-600 transition">Dashboard</a>
+                <a href="assignments.html" class="py-2 px-3 hover:text-indigo-600 transition">Assignments</a>
+                <a href="study-material.html" class="py-2 px-3 hover:text-indigo-600 transition">Study Material</a>
+                <a href="profile.html" class="py-2 px-3 hover:text-indigo-600 transition">Profile</a>
+            </nav>
+            <button data-action="logout" class="bg-red-500 text-white font-medium py-1.5 px-4 rounded-lg shadow-md hover:bg-red-600 transition duration-150 text-sm">
+                Log out
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <h2 class="text-2xl font-semibold mb-4">Upcoming Deadlines</h2>
+        <p class="text-gray-600 mb-6">This page lists your upcoming deadlines—same content as the dashboard card.</p>
+
+        <div class="space-y-4">
+            <div class="p-3 bg-pink-50 rounded-lg">
+                <div class="flex items-center mb-2">
+                    <div class="bg-pink-500 p-2 rounded-lg text-white mr-3">MATH</div>
+                    <p class="font-medium text-gray-800">Math Homework</p>
+                </div>
+                <div class="h-2 bg-pink-200 rounded-full">
+                    <div class="h-2 bg-pink-500 rounded-full" style="width:66%"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Student Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Use Inter font family via standard style block -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Header -->
+            <div class="text-center">
+                <div class="mx-auto h-16 w-16 bg-indigo-500 rounded-full flex items-center justify-center">
+                    <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h2 class="mt-6 text-3xl font-bold text-gray-900">Student Assistant</h2>
+                <p class="mt-2 text-sm text-gray-600">Sign in to your account</p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <form id="loginForm" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input 
+                            id="email" 
+                            name="email" 
+                            type="email" 
+                            autocomplete="email" 
+                            required 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"
+                            placeholder="Enter your email"
+                        >
+                        <div id="email-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <div class="relative">
+                            <input 
+                                id="password" 
+                                name="password" 
+                                type="password" 
+                                autocomplete="current-password" 
+                                required 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 pr-12"
+                                placeholder="Enter your password"
+                            >
+                            <button 
+                                type="button" 
+                                id="togglePassword" 
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
+                            >
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="password-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input 
+                                id="remember-me" 
+                                name="remember-me" 
+                                type="checkbox" 
+                                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                            >
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button 
+                            type="submit" 
+                            id="loginButton"
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            <span id="loginButtonText">Sign in</span>
+                            <svg id="loginSpinner" class="hidden animate-spin ml-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Demo Credentials -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <h3 class="text-sm font-medium text-blue-800 mb-2">Demo Credentials</h3>
+                        <div class="text-xs text-blue-700 space-y-1">
+                            <p><strong>Email:</strong> student@cbit.edu</p>
+                            <p><strong>Password:</strong> password123</p>
+                        </div>
+                        <button 
+                            type="button" 
+                            id="fillDemo" 
+                            class="mt-2 text-xs text-blue-600 hover:text-blue-800 underline"
+                        >
+                            Fill demo credentials
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Sign Up Link -->
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600">
+                        Don't have an account? 
+                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150">Sign up here</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center">
+                <p class="text-xs text-gray-500">
+                    © 2024 Student Assistant. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Login functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const loginButton = document.getElementById('loginButton');
+            const loginButtonText = document.getElementById('loginButtonText');
+            const loginSpinner = document.getElementById('loginSpinner');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+            const fillDemo = document.getElementById('fillDemo');
+
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                // Update icon
+                const icon = togglePassword.querySelector('svg');
+                if (type === 'text') {
+                    icon.innerHTML = `
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                    `;
+                } else {
+                    icon.innerHTML = `
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    `;
+                }
+            });
+
+            // Fill demo credentials
+            fillDemo.addEventListener('click', function() {
+                emailInput.value = 'student@cbit.edu';
+                passwordInput.value = 'password123';
+            });
+
+            // Form validation
+            function validateForm() {
+                let isValid = true;
+                
+                // Clear previous errors
+                document.getElementById('email-error').classList.add('hidden');
+                document.getElementById('password-error').classList.add('hidden');
+                
+                // Email validation
+                const email = emailInput.value.trim();
+                if (!email) {
+                    document.getElementById('email-error').textContent = 'Email is required';
+                    document.getElementById('email-error').classList.remove('hidden');
+                    isValid = false;
+                } else if (!/\S+@\S+\.\S+/.test(email)) {
+                    document.getElementById('email-error').textContent = 'Please enter a valid email address';
+                    document.getElementById('email-error').classList.remove('hidden');
+                    isValid = false;
+                }
+                
+                // Password validation
+                const password = passwordInput.value;
+                if (!password) {
+                    document.getElementById('password-error').textContent = 'Password is required';
+                    document.getElementById('password-error').classList.remove('hidden');
+                    isValid = false;
+                } else if (password.length < 6) {
+                    document.getElementById('password-error').textContent = 'Password must be at least 6 characters';
+                    document.getElementById('password-error').classList.remove('hidden');
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+
+            // Form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm()) {
+                    return;
+                }
+                
+                // Show loading state
+                loginButton.disabled = true;
+                loginButtonText.textContent = 'Signing in...';
+                loginSpinner.classList.remove('hidden');
+                
+                // Simulate login process
+                setTimeout(function() {
+                    const email = emailInput.value.trim();
+                    const password = passwordInput.value;
+                    
+                    // Demo login logic
+                    if (email === 'student@cbit.edu' && password === 'password123') {
+                        // Store login state
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('userEmail', email);
+                        localStorage.setItem('loginTime', new Date().toISOString());
+                        
+                        // Redirect to dashboard
+                        window.location.href = 'index.html';
+                    } else {
+                        // Show error
+                        document.getElementById('password-error').textContent = 'Invalid email or password';
+                        document.getElementById('password-error').classList.remove('hidden');
+                        
+                        // Reset button state
+                        loginButton.disabled = false;
+                        loginButtonText.textContent = 'Sign in';
+                        loginSpinner.classList.add('hidden');
+                    }
+                }, 1500);
+            });
+
+            // Check if already logged in
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

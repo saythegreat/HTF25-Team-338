@@ -1,0 +1,121 @@
+/*
+ * Custom CSS for the Student Assistant Dashboard
+ * This file contains structural and component-specific styles not handled by Tailwind utilities.
+ */
+
+/* Timetable Grid Structure */
+.timetable-grid {
+    /* Define the grid columns: 50px for the time column, and 5 equal-width columns for Mon-Fri */
+    grid-template-columns: 50px repeat(5, 1fr);
+}
+
+/* AI Assistant Chat Styling */
+
+/* Base style for all message containers for consistency */
+[data-message-role] {
+    /* Sets the default rounded-xl radius */
+    border-radius: 0.75rem;
+}
+
+/* Styling for AI-generated messages (light pink background) */
+.ai-message {
+    background-color: #fce7f3; /* Equivalent to Tailwind's pink-100 */
+    /* Ensure the top left corner is a slightly smaller radius to create a chat bubble effect */
+    border-top-left-radius: 0.25rem !important;
+}
+
+/* Styling for User-generated messages (light green background) */
+.user-message {
+    background-color: #d1fae5; /* Equivalent to Tailwind's emerald-100 */
+    /* Push user messages to the right side of the container */
+    margin-left: auto;
+    /* Ensure the top right corner is a slightly smaller radius to create a chat bubble effect */
+    border-top-right-radius: 0.25rem !important;
+}
+
+/* AI Assistant box height to match Study Material card */
+[data-module-id="ai-assistant"] {
+    height: auto; /* Let it size naturally to match study material */
+    min-height: 0; /* Allow it to shrink if needed */
+}
+
+#chat-window {
+    max-height: 10rem; /* 160px - comfortable chat area */
+    padding: 0.5rem; /* comfortable internal spacing */
+    flex-grow: 1; /* Take available space */
+}
+
+/* Narrow AI message bubbles so they don't span as wide in the side panel */
+.ai-message {
+    max-width: 60% !important; /* shrink further from 70% to 60% */
+    padding: 0.4rem !important; /* slightly less padding than before */
+    font-size: 0.9rem; /* a touch smaller to fit the reduced width */
+}
+
+/* Slightly reduce user message padding/font-size for balance */
+.user-message {
+    padding: 0.4rem !important;
+    font-size: 0.9rem;
+}
+
+/* Popup styles for the assistant when opened via the Ask AI button */
+.assistant-popup {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: 20rem; /* ~320px */
+    max-height: 70vh;
+    z-index: 60;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 0.75rem;
+}
+
+/* When assistant is aligned and enlarged, add a subtle transition for nicer movement */
+.assistant-popup,
+[data-module-id="ai-assistant"] {
+    transition: transform 180ms ease, height 180ms ease;
+}
+
+/* Ensure the chat window inside the popup is scrollable and constrained */
+.assistant-popup #chat-window {
+    max-height: 10rem; /* keep the chat area compact in popup */
+    overflow-y: auto;
+    margin-bottom: 0.5rem;
+}
+
+/* Close button shown in popup mode */
+.assistant-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    color: #6b7280; /* gray-500 */
+    cursor: pointer;
+}
+.assistant-close:hover {
+    color: #374151; /* gray-700 */
+}
+
+/* Clickable card styles (make whole article elements act like buttons) */
+.clickable-card {
+    cursor: pointer;
+    user-select: none;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.clickable-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(2,6,23,0.08);
+}
+.clickable-card:focus {
+    outline: 3px solid rgba(99,102,241,0.18); /* indigo-500 with transparency */
+    outline-offset: 4px;
+}
+.clickable-card.card-active {
+    border-color: rgba(99,102,241,0.6);
+}

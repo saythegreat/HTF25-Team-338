@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cell Structure Lab Report — Student Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Use Inter font family via standard style block -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fef3c7; /* Light background color */
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <h1 class="text-xl font-bold text-gray-800">Student Assistant</h1>
+            <nav class="hidden sm:ml-6 sm:flex sm:space-x-8 text-sm text-gray-600" data-nav-id="primary">
+                <a href="index.html" class="py-2 px-3 hover:text-indigo-600 transition">Home</a>
+                <a href="#" class="py-2 px-3 hover:text-indigo-600 transition">Dashboard</a>
+                <a href="assignments.html" class="py-2 px-3 hover:text-indigo-600 transition">Assignments</a>
+                <a href="study-material.html" class="py-2 px-3 hover:text-indigo-600 transition">Study Material</a>
+                <a href="profile.html" class="py-2 px-3 hover:text-indigo-600 transition">Profile</a>
+            </nav>
+            <button data-action="logout" class="bg-red-500 text-white font-medium py-1.5 px-4 rounded-lg shadow-md hover:bg-red-600 transition duration-150 text-sm">
+                Log out
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Back Button -->
+        <div class="mb-6">
+            <a href="assignments.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition duration-150">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Back to Assignments
+            </a>
+        </div>
+
+        <!-- Assignment Header -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <div class="bg-green-500 p-3 rounded-lg text-white mr-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Cell Structure Lab Report</h1>
+                        <p class="text-gray-600">Biology 101 • Professor Dr. Johnson</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs font-semibold text-orange-500 bg-orange-100 px-3 py-1 rounded-full">Due Dec 18</span>
+                    <p class="text-sm text-gray-500 mt-1">Due Dec 18, 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assignment Details -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Main Content -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Instructions -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Lab Report Instructions</h2>
+                    <div class="prose max-w-none">
+                        <p class="text-gray-700 mb-4">Write a comprehensive lab report on cell structure observations using microscope analysis.</p>
+                        <h3 class="text-md font-semibold text-gray-800 mb-2">Required Sections:</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><strong>Introduction:</strong> Background on cell structure and organelles</li>
+                            <li><strong>Materials & Methods:</strong> Equipment used and procedures followed</li>
+                            <li><strong>Results:</strong> Detailed observations with labeled diagrams</li>
+                            <li><strong>Discussion:</strong> Analysis of findings and comparison to literature</li>
+                            <li><strong>Conclusion:</strong> Summary of key findings</li>
+                        </ul>
+                        <p class="text-gray-700 mt-4"><strong>Submission:</strong> Include microscope photographs and hand-drawn diagrams. Submit as PDF.</p>
+                    </div>
+                </div>
+
+                <!-- Lab Data -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Lab Observations</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Plant Cell (Onion)</h3>
+                            <p class="text-gray-600 text-sm">Cell wall clearly visible, large central vacuole, nucleus positioned at periphery</p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Animal Cell (Cheek)</h3>
+                            <p class="text-gray-600 text-sm">No cell wall, smaller vacuoles, nucleus centrally located</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Bacterial Cell</h3>
+                            <p class="text-gray-600 text-sm">Prokaryotic structure, no membrane-bound organelles, cell wall present</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                <!-- Progress -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Progress</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>Overall Progress</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <p>Sections Completed: 1/5</p>
+                            <p>Time Remaining: 3 days</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Resources</h3>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg transition duration-150">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                            Cell Biology Textbook
+                        </a>
+                        <a href="#" class="flex items-center p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg transition duration-150">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            Microscope Tutorial
+                        </a>
+                        <a href="#" class="flex items-center p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg transition duration-150">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            Lab Report Template
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Actions</h3>
+                    <div class="space-y-3">
+                        <button class="w-full bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 transition duration-150">
+                            Continue Writing
+                        </button>
+                        <button class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition duration-150">
+                            Save Draft
+                        </button>
+                        <button class="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-150">
+                            Submit Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Check login status
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Handle logout
+            const logoutButton = document.querySelector('[data-action="logout"]');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', function() {
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userEmail');
+                    localStorage.removeItem('loginTime');
+                    window.location.href = 'login.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

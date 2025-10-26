@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Material — Student Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Use Inter font family via standard style block -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fef3c7; /* Light background color */
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <h1 class="text-xl font-bold text-gray-800">Student Assistant</h1>
+            <nav class="hidden sm:ml-6 sm:flex sm:space-x-8 text-sm text-gray-600" data-nav-id="primary">
+                <a href="index.html" class="py-2 px-3 hover:text-indigo-600 transition">Home</a>
+                <a href="#" class="py-2 px-3 hover:text-indigo-600 transition">Dashboard</a>
+                <a href="assignments.html" class="py-2 px-3 hover:text-indigo-600 transition">Assignments</a>
+                <a href="study-material.html" class="py-2 px-3 font-semibold text-indigo-600 border-b-2 border-indigo-600">Study Material</a>
+                <a href="profile.html" class="py-2 px-3 hover:text-indigo-600 transition">Profile</a>
+            </nav>
+            <button data-action="logout" class="bg-red-500 text-white font-medium py-1.5 px-4 rounded-lg shadow-md hover:bg-red-600 transition duration-150 text-sm">
+                Log out
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">Study Material</h2>
+                <p class="text-gray-600">Organize and manage your study resources</p>
+            </div>
+            <button id="uploadFilesBtn" class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition duration-150 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+                Upload Files
+            </button>
+        </div>
+
+        <!-- Study Folders -->
+        <div class="space-y-4 mb-8">
+            <div class="flex justify-between items-center p-4 bg-yellow-100 rounded-lg hover:bg-yellow-200 transition duration-150 cursor-pointer">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-yellow-600 rounded text-white flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-800">Fall Semester</p>
+                        <p class="text-sm text-gray-600">12 files • Last updated 2 days ago</p>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+
+            <div class="flex justify-between items-center p-4 bg-blue-100 rounded-lg hover:bg-blue-200 transition duration-150 cursor-pointer">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-blue-600 rounded text-white flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-800">Math Resources</p>
+                        <p class="text-sm text-gray-600">8 files • Last updated 1 week ago</p>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+
+            <div class="flex justify-between items-center p-4 bg-green-100 rounded-lg hover:bg-green-200 transition duration-150 cursor-pointer">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-green-600 rounded text-white flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-800">Biology Notes</p>
+                        <p class="text-sm text-gray-600">15 files • Last updated 3 days ago</p>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Recent Files -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Files</h3>
+            <div class="space-y-3" id="recentFiles">
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-red-500 rounded text-white flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Calculus_Chapter_7.pdf</p>
+                            <p class="text-sm text-gray-600">Fall Semester • 2.3 MB</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xs text-gray-500">2 days ago</span>
+                        <button class="text-gray-400 hover:text-gray-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-blue-500 rounded text-white flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Biology_Lab_Notes.docx</p>
+                            <p class="text-sm text-gray-600">Biology Notes • 1.8 MB</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xs text-gray-500">1 week ago</span>
+                        <button class="text-gray-400 hover:text-gray-600">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Upload Files Modal -->
+    <div id="uploadModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Upload Files</h3>
+                <button id="closeUploadModal" class="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            
+            <form id="uploadForm" class="space-y-4">
+                <!-- File Input -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Files</label>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-indigo-500 transition duration-150">
+                        <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.ppt,.pptx" class="hidden">
+                        <div id="dropZone" class="cursor-pointer">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                            <p class="mt-2 text-sm text-gray-600">Click to select files or drag and drop</p>
+                            <p class="text-xs text-gray-500 mt-1">PDF, DOC, DOCX, TXT, JPG, PNG, PPT, PPTX</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Folder Selection -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Upload to Folder</label>
+                    <select id="folderSelect" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="fall-semester">Fall Semester</option>
+                        <option value="math-resources">Math Resources</option>
+                        <option value="biology-notes">Biology Notes</option>
+                        <option value="new-folder">Create New Folder</option>
+                    </select>
+                </div>
+
+                <!-- New Folder Name (if creating new folder) -->
+                <div id="newFolderDiv" class="hidden">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">New Folder Name</label>
+                    <input type="text" id="newFolderName" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter folder name">
+                </div>
+
+                <!-- Selected Files Preview -->
+                <div id="selectedFiles" class="hidden">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Selected Files</label>
+                    <div id="filesList" class="space-y-2 max-h-32 overflow-y-auto"></div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" id="cancelUpload" class="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-150">Cancel</button>
+                    <button type="submit" id="uploadBtn" class="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition duration-150 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <span id="uploadBtnText">Upload Files</span>
+                        <svg id="uploadSpinner" class="hidden animate-spin ml-2 h-4 w-4 text-white inline" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // File upload functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check login status
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Handle logout
+            const logoutButton = document.querySelector('[data-action="logout"]');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', function() {
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userEmail');
+                    localStorage.removeItem('loginTime');
+                    window.location.href = 'login.html';
+                });
+            }
+
+            // Upload modal elements
+            const uploadFilesBtn = document.getElementById('uploadFilesBtn');
+            const uploadModal = document.getElementById('uploadModal');
+            const closeUploadModal = document.getElementById('closeUploadModal');
+            const cancelUpload = document.getElementById('cancelUpload');
+            const uploadForm = document.getElementById('uploadForm');
+            const fileInput = document.getElementById('fileInput');
+            const dropZone = document.getElementById('dropZone');
+            const folderSelect = document.getElementById('folderSelect');
+            const newFolderDiv = document.getElementById('newFolderDiv');
+            const newFolderName = document.getElementById('newFolderName');
+            const selectedFiles = document.getElementById('selectedFiles');
+            const filesList = document.getElementById('filesList');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const uploadBtnText = document.getElementById('uploadBtnText');
+            const uploadSpinner = document.getElementById('uploadSpinner');
+
+            let selectedFilesList = [];
+
+            // Open upload modal
+            uploadFilesBtn.addEventListener('click', function() {
+                uploadModal.classList.remove('hidden');
+            });
+
+            // Close upload modal
+            function closeModal() {
+                uploadModal.classList.add('hidden');
+                resetForm();
+            }
+
+            closeUploadModal.addEventListener('click', closeModal);
+            cancelUpload.addEventListener('click', closeModal);
+
+            // Close modal when clicking outside
+            uploadModal.addEventListener('click', function(e) {
+                if (e.target === uploadModal) {
+                    closeModal();
+                }
+            });
+
+            // Reset form
+            function resetForm() {
+                fileInput.value = '';
+                selectedFilesList = [];
+                selectedFiles.classList.add('hidden');
+                uploadBtn.disabled = true;
+                folderSelect.value = 'fall-semester';
+                newFolderDiv.classList.add('hidden');
+                newFolderName.value = '';
+            }
+
+            // Handle folder selection change
+            folderSelect.addEventListener('change', function() {
+                if (this.value === 'new-folder') {
+                    newFolderDiv.classList.remove('hidden');
+                } else {
+                    newFolderDiv.classList.add('hidden');
+                }
+            });
+
+            // File input change
+            fileInput.addEventListener('change', function() {
+                handleFiles(this.files);
+            });
+
+            // Drop zone click
+            dropZone.addEventListener('click', function() {
+                fileInput.click();
+            });
+
+            // Drag and drop functionality
+            dropZone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('border-indigo-500', 'bg-indigo-50');
+            });
+
+            dropZone.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.classList.remove('border-indigo-500', 'bg-indigo-50');
+            });
+
+            dropZone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('border-indigo-500', 'bg-indigo-50');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            // Handle selected files
+            function handleFiles(files) {
+                selectedFilesList = Array.from(files);
+                displaySelectedFiles();
+                uploadBtn.disabled = selectedFilesList.length === 0;
+            }
+
+            // Display selected files
+            function displaySelectedFiles() {
+                if (selectedFilesList.length === 0) {
+                    selectedFiles.classList.add('hidden');
+                    return;
+                }
+
+                selectedFiles.classList.remove('hidden');
+                filesList.innerHTML = '';
+
+                selectedFilesList.forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'flex items-center justify-between p-2 bg-gray-50 rounded-lg';
+                    fileItem.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-indigo-500 rounded text-white flex items-center justify-center mr-2 text-xs">
+                                ${getFileIcon(file.type)}
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-gray-800">${file.name}</p>
+                                <p class="text-xs text-gray-600">${formatFileSize(file.size)}</p>
+                            </div>
+                        </div>
+                        <button type="button" onclick="removeFile(${index})" class="text-red-500 hover:text-red-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    `;
+                    filesList.appendChild(fileItem);
+                });
+            }
+
+            // Get file icon based on type
+            function getFileIcon(type) {
+                if (type.includes('pdf')) return 'P';
+                if (type.includes('word') || type.includes('document')) return 'W';
+                if (type.includes('image')) return 'I';
+                if (type.includes('powerpoint') || type.includes('presentation')) return 'P';
+                if (type.includes('text')) return 'T';
+                return 'F';
+            }
+
+            // Format file size
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            // Remove file from selection
+            window.removeFile = function(index) {
+                selectedFilesList.splice(index, 1);
+                displaySelectedFiles();
+                uploadBtn.disabled = selectedFilesList.length === 0;
+            };
+
+            // Form submission
+            uploadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (selectedFilesList.length === 0) {
+                    alert('Please select at least one file to upload.');
+                    return;
+                }
+
+                const folderName = folderSelect.value === 'new-folder' ? newFolderName.value : folderSelect.value;
+                if (folderSelect.value === 'new-folder' && !newFolderName.value.trim()) {
+                    alert('Please enter a folder name.');
+                    return;
+                }
+
+                // Show loading state
+                uploadBtn.disabled = true;
+                uploadBtnText.textContent = 'Uploading...';
+                uploadSpinner.classList.remove('hidden');
+
+                // Simulate upload process
+                setTimeout(function() {
+                    // Store uploaded files in localStorage
+                    const uploadedFiles = JSON.parse(localStorage.getItem('uploadedFiles') || '[]');
+                    
+                    selectedFilesList.forEach(file => {
+                        const fileData = {
+                            id: Date.now() + Math.random(),
+                            name: file.name,
+                            size: file.size,
+                            type: file.type,
+                            folder: folderName,
+                            uploadDate: new Date().toISOString(),
+                            url: URL.createObjectURL(file) // For demo purposes
+                        };
+                        uploadedFiles.unshift(fileData);
+                    });
+
+                    localStorage.setItem('uploadedFiles', JSON.stringify(uploadedFiles));
+
+                    // Show success message
+                    alert(`Successfully uploaded ${selectedFilesList.length} file(s) to ${folderName} folder!`);
+                    
+                    // Reset form and close modal
+                    resetForm();
+                    closeModal();
+                    
+                    // Refresh the page to show new files
+                    location.reload();
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
